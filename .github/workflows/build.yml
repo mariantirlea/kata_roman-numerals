@@ -1,8 +1,8 @@
 name: Build
 on:
-#   push:
-#     branches:
-#       - main
+  push:
+    branches:
+      - main
   pull_request:
     types: [opened, synchronize, reopened]
   workflow_dispatch:
@@ -35,9 +35,10 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: mvn -B test verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
-      - name: Upload results
+      - name: Publish artifact
         uses: actions/upload-artifact@v2
         with:
           name: target
-          path: /home/runner/work/kata_roman-numerals/kata_roman-numerals/target
+          path: /home/runner/work/kata_roman-numerals/kata_roman-numerals/target/*.jar
+          if-no-files-found: error # 'warn' or 'ignore' are also available, defaults to `warn` :  
         

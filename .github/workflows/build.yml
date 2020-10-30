@@ -1,10 +1,11 @@
 name: Build
 on:
-  push:
-    branches:
-      - main
+#   push:
+#     branches:
+#       - main
   pull_request:
     types: [opened, synchronize, reopened]
+  workflow_dispatch:
 jobs:
   build:
     name: Build
@@ -34,3 +35,9 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: mvn -B test verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
+      - name: Upload results
+        uses: actions/upload-artifact@v2
+        with:
+          name: my-artifact
+          path: path/to/artifact/ # or path/to/artifact
+        

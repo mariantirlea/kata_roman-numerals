@@ -38,6 +38,6 @@ jobs:
       - name: Upload results
         uses: actions/upload-artifact@v2
         with:
-          name: my-artifact
-          path: path/to/artifact/ # or path/to/artifact
+          name: target
+          path: /home/runner/work/kata_roman-numerals/kata_roman-numerals/target
         

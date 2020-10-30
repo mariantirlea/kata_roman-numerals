@@ -18,18 +18,12 @@ public abstract class ArabicToRoman {
         D(500),
         M(1000),
 
-        @SuppressWarnings("java:S115")
-        V̅(5000),
-        @SuppressWarnings("java:S115")
-        X̅(10000),
-        @SuppressWarnings("java:S115")
-        L̅(50000),
-        @SuppressWarnings("java:S115")
-        C̅(100000),
-        @SuppressWarnings("java:S115")
-        D̅(500000),
-        @SuppressWarnings("java:S115")
-        M̅(1000000);
+        V̅(5000), //NOSONAR
+        X̅(10000), //NOSONAR
+        L̅(50000), //NOSONAR
+        C̅(100000), //NOSONAR
+        D̅(500000), //NOSONAR
+        M̅(1000000); //NOSONAR
 
         private final int value;
 

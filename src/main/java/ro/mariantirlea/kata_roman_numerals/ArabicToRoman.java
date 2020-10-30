@@ -6,7 +6,6 @@ import java.util.Map;
 public abstract class ArabicToRoman {
 
     public static final int LIMIT_ARABIC_LOW = 1;
-//    public static final int LIMIT_ARABIC_HIGH = 3999;
     public static final int LIMIT_ARABIC_HIGH = 3999999;
 
     private enum Symbol {
@@ -19,11 +18,17 @@ public abstract class ArabicToRoman {
         D(500),
         M(1000),
 
+        @SuppressWarnings("java:S115")
         V̅(5000),
+        @SuppressWarnings("java:S115")
         X̅(10000),
+        @SuppressWarnings("java:S115")
         L̅(50000),
+        @SuppressWarnings("java:S115")
         C̅(100000),
+        @SuppressWarnings("java:S115")
         D̅(500000),
+        @SuppressWarnings("java:S115")
         M̅(1000000);
 
         private final int value;

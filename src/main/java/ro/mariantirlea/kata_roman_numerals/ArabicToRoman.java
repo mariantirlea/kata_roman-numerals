@@ -88,9 +88,6 @@ public abstract class ArabicToRoman {
             return symbolForNumberAndLength(1, length - 1) +
                     symbolForNumberAndLength(5, length - 1);
 
-        } else if (number == 5){
-            return symbolForNumberAndLength(5, length - 1);
-
         } else if(number <= 8){
 
             return symbolForNumberAndLength(5, length - 1) +

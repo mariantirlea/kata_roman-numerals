@@ -1,10 +1,12 @@
 package ro.mariantirlea.kata_roman_numerals;
 
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-import org.junit.jupiter.api.Test;
-
+//@ExtendWith(TimingExtension.class)
 class ArabicToRomanTest {
 
     @Test
@@ -79,6 +81,15 @@ class ArabicToRomanTest {
         assertThat(ArabicToRoman.arabicToRoman(1000000)).isEqualTo("M̅");
         assertThat(ArabicToRoman.arabicToRoman(2952349)).isEqualTo("M̅M̅C̅M̅L̅MMCCCXLIX");
         assertThat(ArabicToRoman.arabicToRoman(3999999)).isEqualTo("M̅M̅M̅C̅M̅X̅C̅MX̅CMXCIX");
+
+    }
+
+    @Test
+    void testAllValuesFromRange(){
+
+        for (int i = 1; i <= 3999999; i++) {
+            ArabicToRoman.arabicToRoman(i);
+        }
 
     }
 }

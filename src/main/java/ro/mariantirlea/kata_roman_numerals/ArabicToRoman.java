@@ -1,6 +1,6 @@
 package ro.mariantirlea.kata_roman_numerals;
 
-public abstract class ArabicToRoman {
+public abstract class ArabicToRoman extends NumbersConverter{
 
     public static final int LIMIT_ARABIC_LOW = 1;
     public static final int LIMIT_ARABIC_HIGH = 3999999;
@@ -40,27 +40,31 @@ public abstract class ArabicToRoman {
 
         if(number <= 3){
 
-            return repeat(symbolForNumberAndLength(1, length - 1), number);
+//            getSymbolForValue(number * (int)Math.pow(10, length - 1));
+
+            return repeat(getSymbolForValue(1 * (int)Math.pow(10, length - 1)), number);
         } else if (number == 4){
 
-            return symbolForNumberAndLength(1, length - 1) +
-                    symbolForNumberAndLength(5, length - 1);
+            return getSymbolForValue(1 * (int)Math.pow(10, length - 1)) +
+                    getSymbolForValue(5 * (int)Math.pow(10, length - 1));
 
         } else if(number <= 8){
 
-            return symbolForNumberAndLength(5, length - 1) +
-                    repeat(symbolForNumberAndLength(1, length - 1), number - 5);
+            return getSymbolForValue(5 * (int)Math.pow(10, length - 1)) +
+                    repeat(getSymbolForValue(1 * (int)Math.pow(10, length - 1)), number - 5);
 
         } else {
 
-            return symbolForNumberAndLength(1, length - 1) +
-                    symbolForNumberAndLength(1, length);
+            return getSymbolForValue(1 * (int)Math.pow(10, length - 1)) +
+                    getSymbolForValue(1 * (int)Math.pow(10, length));
         }
 
     }
 
     private static String symbolForNumberAndLength(int number, int length) {
-        return NumbersConverter.Symbol.get((int) (number * Math.pow(10, length))).name();
+        System.err.println(number+ "   "+ getSymbolForValue(number));
+        return getSymbolForValue(number);
+//        return Symbol.get((int) (number * Math.pow(10, length))).name();
     }
 
     private static String repeat(String symbol, int number) {
